@@ -1,6 +1,9 @@
-import  express  from "express";
+import express from "express";
 
 const app = express();
 
+//middlewares
+app.use(express.json());
 
-app.listen(5000,()=> console.log("Server Running"))
+//connection and listeneres
+app.listen(5000, () => console.log("Server Running"));
