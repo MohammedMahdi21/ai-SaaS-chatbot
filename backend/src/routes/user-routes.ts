@@ -5,6 +5,6 @@ import { loginValidator, signupValidator, validate } from "../utils/validators.j
 const userRouters = Router();
 
 userRouters.get("/", getAllUsers)
-userRouters.post("/signup",validate(signupValidator), userSignup);
-userRouters.post("/login",validate(loginValidator), userLogin);
+userRouters.post("/signup", validate(signupValidator), userSignup);
+userRouters.post("/login", validate(loginValidator), userLogin);
 export default userRouters;
