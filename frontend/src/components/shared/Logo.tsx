@@ -20,7 +20,8 @@ const Logo = () => {
           height={"30px"}
           className="image-inverted"
         />
-        <Typography
+      </Link>
+      <Typography
           sx={{
             display: { md: "block", sm: "none", xs: "none" },
             mr: "auto",
@@ -30,7 +31,6 @@ const Logo = () => {
         >
           <span style={{ fontSize: "20px" }}>AI</span>-ChatBot
         </Typography>
-      </Link>
     </div>
   );
 };
