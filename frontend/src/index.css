@@ -9,7 +9,7 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
-.image-inverted{
+.image-inverted {
   filter: invert(100%);
 }
 
@@ -22,4 +22,9 @@ body {
   border-radius: 10px;
   text-decoration: none;
   letter-spacing: 1px;
+}
+
+.MuiOutlinedInput-input-root.Mui-focused,
+.MuiOutlinedInput-notchedOutline {
+  border-color: white !important; 
 }
