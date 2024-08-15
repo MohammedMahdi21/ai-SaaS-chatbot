@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { ValidationChain, body, validationResult } from "express-validator";
+import { body, ValidationChain, validationResult } from "express-validator";
 
-//final validate function
 export const validate = (validations: ValidationChain[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     for (let validation of validations) {
@@ -14,18 +13,23 @@ export const validate = (validations: ValidationChain[]) => {
     if (errors.isEmpty()) {
       return next();
     }
-    res.status(422).json({ errors: errors.array() });
-  }
-}
+    return res.status(422).json({ errors: errors.array() });
+  };
+};
 
-//login Validation chain array
 export const loginValidator = [
   body("email").trim().isEmail().withMessage("Email is required"),
-  body("password").trim().isLength({ min: 6 }).withMessage("Password should contain atleast 6 characters")
+  body("password")
+    .trim()
+    .isLength({ min: 6 })
+    .withMessage("Password should contain atleast 6 characters"),
 ];
 
-//signup Validation chain array
 export const signupValidator = [
   body("name").notEmpty().withMessage("Name is required"),
-  ...loginValidator
+  ...loginValidator,
+];
+
+export const chatCompletionValidator = [
+  body("message").notEmpty().withMessage("Message  is required"),
 ];
